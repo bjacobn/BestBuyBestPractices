@@ -10,7 +10,7 @@ namespace BestBuy_CRUD
     {
         static void Main(string[] args)
         {
-            //Connection string Setup 
+            //Connection string 
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
