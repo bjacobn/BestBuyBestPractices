@@ -38,7 +38,7 @@ namespace BestBuy_CRUD
         //Delete Data
         public void DeleteProduct(int productID)
         {
-            //Delete sequence requires primary ke
+            //Delete sequence requires primary key
             _connection.Execute("DELETE FROM sales WHERE ProductID = @productID;", new { productID = productID });
 
             _connection.Execute("DELETE FROM reviews WHERE ProductID = @productID;", new { productID = productID });
@@ -48,4 +48,4 @@ namespace BestBuy_CRUD
         }
     }
 }
-}
+
