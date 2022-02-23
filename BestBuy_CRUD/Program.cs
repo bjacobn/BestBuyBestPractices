@@ -8,6 +8,7 @@ namespace BestBuy_CRUD
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             //Connection string 
@@ -19,10 +20,17 @@ namespace BestBuy_CRUD
             string connString = config.GetConnectionString("DefaultConnection");
             IDbConnection conn = new MySqlConnection(connString);
 
-            //Main menu
-            Console.WriteLine("BestBuy - CRUD");
-            MainMenu.Menu();
+            //-----------------------------------------------------------------------------------
+
+
+            Console.WriteLine("BestBuy - CRUD"); 
+            
+            MainMenu.Menu(conn);
+
 
         }
     }
 }
+
+
+
