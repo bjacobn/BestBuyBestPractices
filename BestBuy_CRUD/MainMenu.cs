@@ -9,7 +9,6 @@ namespace BestBuy_CRUD
     public static class MainMenu
     {
 
-
         public static void Menu(IDbConnection conn)
         {
             //Navigation Menu
@@ -20,7 +19,7 @@ namespace BestBuy_CRUD
             Console.WriteLine("4.) Delete a product ");
             Console.WriteLine("5.) Exit\n");
 
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
             var answer = Convert.ToInt32(input);
 
 
@@ -60,8 +59,8 @@ namespace BestBuy_CRUD
                 Console.WriteLine();
                 Console.WriteLine($"{name} was added to the database." +
                     $"");
-
                 TimeStamp.Date();
+
                 ExitOption.MenuOrExitKey(conn);
             }
 
@@ -82,8 +81,8 @@ namespace BestBuy_CRUD
                 update.UpdateProduct(prodID, newName);
 
                 Console.WriteLine($"ProductID {prodID} was updated to {newName}");
-
                 TimeStamp.Date();
+
                 ExitOption.MenuOrExitKey(conn);
             }
 
@@ -103,8 +102,8 @@ namespace BestBuy_CRUD
                 Console.WriteLine();
 
                 Console.WriteLine($"ProductID {prodID} was deleted");
-
                 TimeStamp.Date();
+
                 ExitOption.MenuOrExitKey(conn);
             }
 

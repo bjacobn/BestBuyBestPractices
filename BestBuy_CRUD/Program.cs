@@ -22,7 +22,6 @@ namespace BestBuy_CRUD
 
             Console.WriteLine("BestBuy - CRUD"); 
             MainMenu.Menu(conn);
-
         }
     }
 }

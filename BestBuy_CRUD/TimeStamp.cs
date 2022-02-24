@@ -8,7 +8,6 @@ namespace BestBuy_CRUD
     {
         public static void Date()
         {
-            //Console.WriteLine();
             DateTime now = DateTime.Now;
             Console.WriteLine(now);
         }

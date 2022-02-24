@@ -14,6 +14,5 @@ namespace BestBuy_CRUD
         void UpdateProduct(int productID, string updatedName);
 
         void DeleteProduct(int productID);
-
     }
 }
