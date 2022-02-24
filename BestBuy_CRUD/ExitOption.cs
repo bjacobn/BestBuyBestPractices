@@ -12,19 +12,17 @@ namespace BestBuy_CRUD
             Console.WriteLine();
             Console.WriteLine("Press (Enter) for the Main Menu or (ESC) to Exit...");
             
-
             if (Console.ReadKey().Key == ConsoleKey.Enter)
             {
-                Console.WriteLine();
+                Console.Clear();
                 MainMenu.Menu(conn);
             }
 
             if (Console.ReadKey().Key == ConsoleKey.Escape)
             {
-                Console.WriteLine();
+                Console.Clear();
                 Console.WriteLine(" Exiting BestBuy CRUD.");
                 Environment.Exit(0);
-
             }
         }
     }

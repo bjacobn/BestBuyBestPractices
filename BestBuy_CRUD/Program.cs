@@ -20,13 +20,8 @@ namespace BestBuy_CRUD
             string connString = config.GetConnectionString("DefaultConnection");
             IDbConnection conn = new MySqlConnection(connString);
 
-            //-----------------------------------------------------------------------------------
-
-
             Console.WriteLine("BestBuy - CRUD"); 
-            
             MainMenu.Menu(conn);
-
 
         }
     }

@@ -12,7 +12,8 @@ namespace BestBuy_CRUD
 
         public static void Menu(IDbConnection conn)
         {
-            Console.WriteLine("Please choose a number from the options below:");
+            //Navigation Menu
+            Console.WriteLine("Please select a number from the options below.");
             Console.WriteLine("1.) View all products");
             Console.WriteLine("2.) Create a new product");
             Console.WriteLine("3.) Update an exsiting product");
@@ -21,8 +22,6 @@ namespace BestBuy_CRUD
 
             string input = Console.ReadLine();
             var answer = Convert.ToInt32(input);
-
-            
 
 
             //Read 
@@ -36,8 +35,6 @@ namespace BestBuy_CRUD
                     Console.WriteLine($"{item.ProductID} {item.Name}");
                 }
 
-                TimeStamp.Date();
-
                 ExitOption.MenuOrExitKey(conn);
             }
 
@@ -45,7 +42,9 @@ namespace BestBuy_CRUD
             //Create 
             if (answer == 2)
             {
+                
                 var create = new DapperProductRepository(conn);
+                Console.WriteLine();
 
                 Console.WriteLine("What is the name of the new product??");
                 var name = Console.ReadLine();
@@ -58,8 +57,11 @@ namespace BestBuy_CRUD
 
                 create.CreateProduct(name, price, category);
 
-                Console.WriteLine($"{name} was added to the inventory");
+                Console.WriteLine();
+                Console.WriteLine($"{name} was added to the database." +
+                    $"");
 
+                TimeStamp.Date();
                 ExitOption.MenuOrExitKey(conn);
             }
 
@@ -67,18 +69,11 @@ namespace BestBuy_CRUD
             //Update
             if (answer == 3)
             {
+                Console.WriteLine();
                 var update = new DapperProductRepository(conn);
-
-                var products = update.GetAllProducts();
-
-                foreach (var item in products)
-                {
-                    Console.WriteLine($"{item.ProductID} {item.Name}");
-                }
-
                 Console.WriteLine();
 
-                Console.WriteLine("What product ID would you like to update?");
+                Console.WriteLine("What productID would you like to update?");
                 var prodID = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("What is the new product name?");
@@ -86,8 +81,9 @@ namespace BestBuy_CRUD
 
                 update.UpdateProduct(prodID, newName);
 
-                Console.WriteLine($"Product ID # {prodID} name was updated to {newName}");
+                Console.WriteLine($"ProductID {prodID} was updated to {newName}");
 
+                TimeStamp.Date();
                 ExitOption.MenuOrExitKey(conn);
             }
 
@@ -97,22 +93,18 @@ namespace BestBuy_CRUD
             {
                 var delete = new DapperProductRepository(conn);
 
-                var products = delete.GetAllProducts();
-
-                foreach (var item in products)
-                {
-                    Console.WriteLine($"{item.ProductID} {item.Name}");
-                }
-
                 Console.WriteLine();
 
-                Console.WriteLine("Please select the productID number you would like to delete?");
+                Console.WriteLine("What is the productID you would like delete?");
                 var prodID = int.Parse(Console.ReadLine());
 
                 delete.DeleteProduct(prodID);
 
-                Console.WriteLine($"ProductID {prodID} was deleted\n");
+                Console.WriteLine();
 
+                Console.WriteLine($"ProductID {prodID} was deleted");
+
+                TimeStamp.Date();
                 ExitOption.MenuOrExitKey(conn);
             }
 
@@ -120,6 +112,7 @@ namespace BestBuy_CRUD
             //Exit
             if (answer == 5)
             {
+                Console.WriteLine("Exiting BestBuy CRUD.");
                 Environment.Exit(0);
             }
 
