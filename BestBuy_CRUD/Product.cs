@@ -13,5 +13,4 @@ namespace BestBuy_CRUD
         public int OnSale { get; set; }
         public string StockLevel { get; set; }
     }
-
 }

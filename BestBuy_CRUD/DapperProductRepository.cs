@@ -44,7 +44,6 @@ namespace BestBuy_CRUD
             _connection.Execute("DELETE FROM reviews WHERE ProductID = @productID;", new { productID = productID });
 
             _connection.Execute("DELETE FROM products WHERE ProductID = @productID;", new { productID = productID });
-
         }
     }
 }

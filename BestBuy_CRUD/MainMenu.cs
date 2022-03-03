@@ -8,7 +8,6 @@ namespace BestBuy_CRUD
 {
     public static class MainMenu
     {
-
         public static void Menu(IDbConnection conn)
         {
             //Navigation Menu
@@ -26,15 +25,7 @@ namespace BestBuy_CRUD
             //Read 
             if (answer == 1)
             {
-                var repo = new DapperProductRepository(conn);
-                var products = repo.GetAllProducts();
-
-                foreach (var item in products)
-                {
-                    Console.WriteLine($"{item.ProductID} {item.Name}");
-                }
-
-                ExitOption.MenuOrExitKey(conn);
+                ViewProducts.InventoryList(conn);
             }
 
 
@@ -57,8 +48,7 @@ namespace BestBuy_CRUD
                 create.CreateProduct(name, price, category);
 
                 Console.WriteLine();
-                Console.WriteLine($"{name} was added to the database." +
-                    $"");
+                Console.WriteLine($"{name} was added to the database.");
                 TimeStamp.Date();
 
                 ExitOption.MenuOrExitKey(conn);
@@ -69,7 +59,13 @@ namespace BestBuy_CRUD
             if (answer == 3)
             {
                 Console.WriteLine();
+
                 var update = new DapperProductRepository(conn);
+
+                Console.WriteLine();
+
+                ViewProducts.InventoryList(conn);
+
                 Console.WriteLine();
 
                 Console.WriteLine("What productID would you like to update?");
@@ -91,6 +87,10 @@ namespace BestBuy_CRUD
             if (answer == 4)
             {
                 var delete = new DapperProductRepository(conn);
+
+                Console.WriteLine();
+
+                ViewProducts.InventoryList(conn);
 
                 Console.WriteLine();
 
