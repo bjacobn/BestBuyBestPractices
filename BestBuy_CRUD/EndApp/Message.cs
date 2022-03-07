@@ -3,28 +3,24 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace BestBuy_CRUD
+namespace BestBuy_CRUD.EndApp
 {
-    public static class ExitOption
+    public static class Message
     {
-        public static void MenuOrExitKey(IDbConnection conn)
+        public static void MenuExit(IDbConnection conn)
         {
             Console.WriteLine();
             Console.WriteLine("Press (Enter) for the Main Menu or (ESC) to Exit...");
-            
+
             if (Console.ReadKey().Key == ConsoleKey.Enter)
             {
-                Console.Clear();
-                MainMenu.Menu(conn);
+                EnterKey.Menu(conn);
             }
 
             if (Console.ReadKey().Key == ConsoleKey.Escape)
             {
-                Console.Clear();
-                Console.WriteLine(" Exiting BestBuy CRUD.");
-                Environment.Exit(0);
+                EscKey.Exit(conn);
             }
-        }
+        } 
     }
 }
-

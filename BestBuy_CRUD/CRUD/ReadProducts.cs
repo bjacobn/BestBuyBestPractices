@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BestBuy_CRUD.EndApp;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
 namespace BestBuy_CRUD
 {
-    public static class ViewProducts
+    public static class ReadProducts
     {
         public static void InventoryList(IDbConnection conn)
         {
@@ -15,8 +16,7 @@ namespace BestBuy_CRUD
             foreach (var item in products)
             {
                 Console.WriteLine($"{item.ProductID} {item.Name}");
-            }
-            
+            }          
         }
     }
 }

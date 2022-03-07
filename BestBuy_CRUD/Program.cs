@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BestBuy_CRUD.EndApp;
+using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -20,8 +21,50 @@ namespace BestBuy_CRUD
             string connString = config.GetConnectionString("DefaultConnection");
             IDbConnection conn = new MySqlConnection(connString);
 
-            Console.WriteLine("BestBuy - CRUD"); 
-            MainMenu.Menu(conn);
+            Console.WriteLine("BestBuy - CRUD");
+            
+            //Menu
+            MainMenu.UserInput(conn);
+
+            //Users Input
+            var input = Console.ReadLine();
+            var answer = Convert.ToInt32(input);
+
+            //Read 
+            if (answer == 1)
+            {
+                ReadProducts.InventoryList(conn);
+            }
+
+
+            //Create 
+            if (answer == 2)
+            {
+                CreateProduct.Create(conn);
+            }
+
+
+            //Update 
+            if (answer == 3)
+            {
+                UpdateProduct.Update(conn);
+            }
+
+
+            //Delete 
+            if (answer == 4)
+            {
+                DeleteProduct.Delete(conn);
+            }
+
+
+            //Exit Applicaiton
+            if (answer == 5)
+            {
+                Console.WriteLine("Exiting BestBuy CRUD.");
+                Environment.Exit(0);
+            }
+
         }
     }
 }
