@@ -29,11 +29,6 @@ namespace BestBuy_CRUD
             Console.WriteLine();
             Console.WriteLine($"{name} was added to the inventory."
                 );
-            TimeStamp.Date();
-
-            Message.MenuExit(conn);
-
-
         }
     }
 }

@@ -9,7 +9,6 @@ namespace BestBuy_CRUD
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             //Connection string 
@@ -21,8 +20,8 @@ namespace BestBuy_CRUD
             string connString = config.GetConnectionString("DefaultConnection");
             IDbConnection conn = new MySqlConnection(connString);
 
-            Console.WriteLine("BestBuy - CRUD");
-            
+
+
             //Menu
             MainMenu.UserInput(conn);
 
@@ -41,6 +40,8 @@ namespace BestBuy_CRUD
             if (answer == 2)
             {
                 CreateProduct.Create(conn);
+                TimeStamp.Date();
+                Message.MenuExit(conn);
             }
 
 
@@ -48,6 +49,8 @@ namespace BestBuy_CRUD
             if (answer == 3)
             {
                 UpdateProduct.Update(conn);
+                TimeStamp.Date();
+                Message.MenuExit(conn);
             }
 
 
@@ -55,6 +58,8 @@ namespace BestBuy_CRUD
             if (answer == 4)
             {
                 DeleteProduct.Delete(conn);
+                TimeStamp.Date();
+                Message.MenuExit(conn);       
             }
 
 

@@ -29,9 +29,7 @@ namespace BestBuy_CRUD
             update.UpdateProduct(prodID, newName);
 
             Console.WriteLine($"ProductID {prodID} name was updated to {newName}");
-            TimeStamp.Date();
-
-            Message.MenuExit(conn);
+            
         }
     }
 }

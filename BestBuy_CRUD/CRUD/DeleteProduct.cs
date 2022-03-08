@@ -24,10 +24,7 @@ namespace BestBuy_CRUD
 
             Console.WriteLine();
 
-            Console.WriteLine($"ProductID {prodID} was deleted");
-            TimeStamp.Date();
-
-            Message.MenuExit(conn);
+            Console.WriteLine($"ProductID {prodID} was deleted");        
         }
     }
 }
